@@ -22,11 +22,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       <Link
         href={`/work/${project.slug}`}
         className={cn(
-          "group block rounded-2xl overflow-hidden bg-foreground/5 border border-foreground/10",
-          "transition-all duration-300 hover:border-foreground/20 hover:shadow-lg"
+          "group block rounded-lg overflow-hidden bg-background border border-foreground/10",
+          "transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
         )}
       >
-        <div className="aspect-[16/10] relative bg-foreground/10 overflow-hidden">
+        <div className="aspect-[16/10] relative bg-foreground/5 overflow-hidden">
           {project.thumbnail ? (
             <Image
               src={project.thumbnail}
@@ -36,23 +36,30 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-24 h-24 rounded-2xl bg-foreground/10" />
+              <div className="w-24 h-24 rounded-lg bg-foreground/10" />
             </div>
           )}
         </div>
 
         <div className="p-6">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-medium text-foreground/50 uppercase tracking-wider">
-              {project.role}
-            </span>
-          </div>
           <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
             {project.title}
           </h3>
-          <p className="text-foreground/70 text-sm leading-relaxed line-clamp-3">
+          <p className="text-foreground/70 text-sm leading-relaxed mb-4">
             {project.description}
           </p>
+          {project.tags && project.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs text-foreground/60 px-2 py-1 bg-foreground/5 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>

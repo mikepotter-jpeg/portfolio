@@ -22,6 +22,7 @@ export interface Project {
   tagline: string;
   description: string;
   role: string;
+  tags?: string[];
   duration?: string;
   thumbnail?: string;
   heroImage?: string;
@@ -34,14 +35,15 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "export-service-account",
-    title: "Export Service Account",
-    tagline: "Digital platform for Australia's export industry",
+    title: "Export Service",
+    tagline: "Account and access platform for Australia's export industry",
     description:
-      "Access platform for Australia's export industry. I led end-to-end design serving 2,000+ regulated businesses, reducing registration times and simplifying compliance.",
+      "Account and access platform for Australia's export industry. I led end-to-end design serving 2,000+ regulated businesses, reducing registration times and simplifying compliance.",
     role: "Product Design",
+    tags: ["Product Design", "Design systems"],
     duration: "2022 - 2023",
-    thumbnail: "/images/export-service-thumbnail.jpg",
-    heroImage: "/images/export-service-hero.jpg",
+    thumbnail: "/images/export-service.jpg",
+    heroImage: "/images/export-service.jpg",
     challenge:
       "Australian exporters faced complex, time-consuming registration processes with multiple government agencies. The existing system was fragmented, leading to delays and compliance issues for over 2,000 regulated businesses.",
     solution:
@@ -62,9 +64,10 @@ export const projects: Project[] = [
     description:
       "Wine subscription service launched to 500,000+ My Dan's members. I designed the end-to-end customer experience and an internal portal for staff to curate monthly selections.",
     role: "Product Design",
+    tags: ["Ecommerce", "Visual Design", "Product Design"],
     duration: "2021 - 2022",
-    thumbnail: "/images/dan-picked-thumbnail.jpg",
-    heroImage: "/images/dan-picked-hero.jpg",
+    thumbnail: "/images/dan-picked.jpg",
+    heroImage: "/images/dan-picked.jpg",
     challenge:
       "Dan Murphy's wanted to create a personalized wine subscription service that would engage their 500,000+ loyalty members while giving staff tools to curate quality monthly selections.",
     solution:
@@ -100,6 +103,31 @@ export const about = {
 };
 
 export const contact = {
-  headline: "I'm exploring new opportunities.",
-  subheadline: "Email me or connect with me on LinkedIn.",
+  headline: "Let's talk",
+  subheadline: "I'm exploring new opportunities.",
+  description: "Email me or connect with me on LinkedIn.",
 };
+
+export interface Testimonial {
+  date: string;
+  quote: string;
+  author: string;
+  role: string;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    date: "October 6, 2025",
+    quote:
+      "I highly recommend Michael, for any role requiring a thoughtful and technically adept and user focused interaction designer.\n\nThroughout our time working together, Michael consistently demonstrated a deep commitment to advocating for the customer. He skillfully balanced user needs with technical constraints, often negotiating solutions that elevated both the experience and the feasibility of delivery. His ability to understand and adapt to technical limitations, made him an invaluable bridge between design and engineering.\n\nMichael's integrity was exceptional. He stepped up to fill gaps and took on leadership responsibilities when managers were unavailable. He always did this with humility …",
+    author: "Emma-Grace Turek",
+    role: "Senior Specialist at Microsoft (formerly Director, Digital Identity and Account, DAFF)",
+  },
+  {
+    date: "September 22, 2025",
+    quote:
+      "I had the pleasure of working alongside Michael while he was in a product team and I was in the design system team. Our paths crossed often, as I supported with design system advice and governance while also offering suggestions for the products he was working on.\n\nMichael was an excellent design system practitioner. He consistently followed governance, actively participated in design community sessions, and had a sharp eye for spotting bugs or opportunities to improve the system. His feedback and contributions made a real difference to the quality and growth of the design system.\n\nMichael's impact extended well beyond his own work …",
+    author: "Paul Maher",
+    role: "Design System Lead, DAFF",
+  },
+];

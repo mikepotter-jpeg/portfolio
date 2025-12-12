@@ -5,10 +5,10 @@ import { contact, siteConfig } from "@/lib/content";
 
 export function Contact() {
   return (
-    <section className="py-24 bg-foreground/5">
+    <section className="py-24">
       <div className="container mx-auto px-6">
         <motion.div
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -17,7 +17,10 @@ export function Contact() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {contact.headline}
           </h2>
-          <p className="text-xl text-foreground/70">
+          <p className="text-lg md:text-xl text-foreground/80 mb-4">
+            {contact.subheadline}
+          </p>
+          <p className="text-lg md:text-xl text-foreground/80">
             <a
               href={`mailto:${siteConfig.email}`}
               className="text-foreground font-medium underline underline-offset-4 hover:text-foreground/70 transition-colors"

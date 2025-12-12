@@ -24,7 +24,7 @@ export function Footer() {
           </nav>
 
           <p className="text-sm text-foreground/50">
-            © {currentYear} {siteConfig.name}. All rights reserved.
+            ☺︎ {siteConfig.name} | {currentYear}
           </p>
         </div>
       </div>

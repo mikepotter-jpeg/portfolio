@@ -45,27 +45,39 @@ export default async function CaseStudyPage({ params }: PageProps) {
   return (
     <article className="py-24">
       <div className="container mx-auto px-6">
+        {/* Breadcrumb */}
+        <nav className="max-w-3xl mx-auto mb-8" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 text-sm text-foreground/60">
+            <li>
+              <Link
+                href="/"
+                className="hover:text-foreground transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <span className="mx-2">/</span>
+            </li>
+            <li>
+              <Link
+                href="/#work"
+                className="hover:text-foreground transition-colors"
+              >
+                My work
+              </Link>
+            </li>
+            <li>
+              <span className="mx-2">/</span>
+            </li>
+            <li className="text-foreground" aria-current="page">
+              {project.title}
+            </li>
+          </ol>
+        </nav>
+
         {/* Header */}
         <header className="max-w-3xl mx-auto mb-16">
-          <Link
-            href="/#work"
-            className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground transition-colors mb-8"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Back to work
-          </Link>
 
           <div className="flex items-center gap-3 mb-4">
             <span className="text-sm font-medium text-foreground/50 uppercase tracking-wider">

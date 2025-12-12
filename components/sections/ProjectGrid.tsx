@@ -9,13 +9,13 @@ export function ProjectGrid() {
     <section id="work" className="py-24 scroll-mt-20">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center"
+          className="text-3xl md:text-4xl font-bold text-foreground mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          My Work
+          Some of my work
         </motion.h2>
 
         <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">

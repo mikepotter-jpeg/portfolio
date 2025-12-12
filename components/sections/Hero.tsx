@@ -1,44 +1,57 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { siteConfig } from "@/lib/content";
 
 export function Hero() {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[80vh] flex items-center relative overflow-hidden py-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Squirkle shape decoration */}
-          <motion.div
-            className="relative w-32 h-32 mx-auto mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+        <div className="max-w-4xl">
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div
-              className="w-full h-full bg-gradient-to-br from-foreground/10 to-foreground/5 border border-foreground/10"
-              style={{
-                borderRadius: "32% 68% 68% 32% / 32% 32% 68% 68%",
-              }}
-            />
-          </motion.div>
+            I&apos;m Michael, a product designer in Sydney.
+          </motion.h1>
 
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6"
+          <motion.p
+            className="text-lg md:text-xl text-foreground/80 mb-4 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            I specialise in enterprise product design, with experience in account
+            systems, permissions, and identity workflows where clarity matters.
+            I&apos;ve led design for government, energy, and retail serving thousands
+            of businesses.
+          </motion.p>
+
+          <motion.p
+            className="text-lg md:text-xl text-foreground/80 mb-6 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {siteConfig.name}
-          </motion.h1>
+            I use research to inform decisions and partner with engineering to
+            deliver.
+          </motion.p>
 
           <motion.p
-            className="text-xl md:text-2xl text-foreground/70 mb-8"
+            className="text-lg md:text-xl text-foreground/80"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            {siteConfig.title}
+            <Link
+              href="/about"
+              className="text-foreground font-medium underline underline-offset-4 hover:text-foreground/70 transition-colors"
+            >
+              Learn a little more about me
+            </Link>
+            .
           </motion.p>
         </div>
       </div>
