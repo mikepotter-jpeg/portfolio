@@ -5,7 +5,7 @@ export const siteConfig = {
   name: "Michael Potter",
   title: "Product Designer",
   description: "Portfolio website showcasing my projects and experience",
-  url: "https://michaelpotter.vercel.app", // Update after Vercel deployment
+  url: "https://portfolio-sandy-delta-q9skk6dbdu.vercel.app",
   email: "hello@michaelpotter.com", // Update with your actual email
   linkedin: "https://linkedin.com/in/michaelpotter", // Update with your LinkedIn URL
 };
