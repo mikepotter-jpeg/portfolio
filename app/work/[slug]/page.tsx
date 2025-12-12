@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: project.title,
+    title: `${project.title} - Michael Potter: Design portfolio`,
     description: project.description,
     openGraph: {
       title: project.title,
@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     <article className="py-20 md:py-28">
       <div className="max-w-container mx-auto px-6">
         {/* Breadcrumb */}
-        <nav className="max-w-content mb-8" aria-label="Breadcrumb">
+        <nav className="mb-8" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2 text-small text-muted">
             <li>
               <Link
@@ -78,27 +78,29 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         {/* Header */}
         <header className="max-w-content mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-small text-muted uppercase tracking-wide">
-              {project.role}
-            </span>
-            {project.duration && (
-              <>
-                <span className="text-muted">•</span>
-                <span className="text-small text-muted">
-                  {project.duration}
-                </span>
-              </>
-            )}
-          </div>
+          {/* Duration */}
+          {project.duration && (
+            <p className="text-body text-muted mb-4">
+              🗓️ {project.duration}
+            </p>
+          )}
 
-          <h1 className="text-hero-md md:text-hero text-foreground mb-4">
+          <h1 className="text-hero-md md:text-hero text-foreground mb-6">
             {project.title}
           </h1>
 
-          <p className="text-body-lg text-muted">
+          <p className="text-body-lg text-muted mb-6">
             {project.tagline}
           </p>
+
+          {/* Client */}
+          {project.client && (
+            <p className="text-body text-muted">
+              <span className="text-foreground font-medium">Client</span>
+              <br />
+              {project.client}
+            </p>
+          )}
         </header>
 
         {/* Hero Image */}
@@ -116,110 +118,76 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Content */}
+        {/* Content Sections */}
         <div className="max-w-content">
-          {project.challenge && (
-            <section className="mb-12">
-              <h2 className="text-h2 text-foreground mb-4">
-                The Challenge
+          {project.sections?.map((section, sectionIndex) => (
+            <section key={sectionIndex} className="mb-16">
+              <h2 className="text-h2 text-foreground mb-6">
+                {section.title}
               </h2>
-              <p className="text-body-lg text-muted">
-                {project.challenge}
-              </p>
-            </section>
-          )}
+              
+              {section.content.map((paragraph, pIndex) => (
+                <p
+                  key={pIndex}
+                  className="text-body-lg text-muted mb-4"
+                >
+                  {paragraph}
+                </p>
+              ))}
 
-          {project.solution && (
-            <section className="mb-12">
-              <h2 className="text-h2 text-foreground mb-4">
-                The Solution
-              </h2>
-              <p className="text-body-lg text-muted">
-                {project.solution}
-              </p>
+              {/* Subsections */}
+              {section.subsections?.map((subsection, subIndex) => (
+                <div key={subIndex} className="mt-10">
+                  <h3 className="text-body-lg font-semibold text-foreground mb-4">
+                    {subsection.title}
+                  </h3>
+                  {subsection.content.map((paragraph, pIndex) => (
+                    <p
+                      key={pIndex}
+                      className="text-body-lg text-muted mb-4"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ))}
             </section>
-          )}
-
-          {project.outcome && (
-            <section className="mb-12">
-              <h2 className="text-h2 text-foreground mb-4">
-                The Outcome
-              </h2>
-              <p className="text-body-lg text-muted">
-                {project.outcome}
-              </p>
-            </section>
-          )}
-
-          {project.highlights && project.highlights.length > 0 && (
-            <section className="mb-12">
-              <h2 className="text-h2 text-foreground mb-4">
-                Key Highlights
-              </h2>
-              <ul className="space-y-2">
-                {project.highlights.map((highlight, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-body-lg text-muted"
-                  >
-                    <span className="text-border mt-1">•</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          ))}
         </div>
 
         {/* Navigation */}
         <nav className="max-w-content mt-16 pt-8 border-t border-border">
           <div className="flex justify-between">
-            {(() => {
-              const currentIndex = projects.findIndex(
-                (p) => p.slug === project.slug
-              );
-              const prevProject =
-                currentIndex > 0 ? projects[currentIndex - 1] : null;
-              const nextProject =
-                currentIndex < projects.length - 1
-                  ? projects[currentIndex + 1]
-                  : null;
-
-              return (
-                <>
-                  {prevProject ? (
-                    <Link
-                      href={`/work/${prevProject.slug}`}
-                      className="group flex flex-col"
-                    >
-                      <span className="text-small text-muted mb-1">
-                        Previous
-                      </span>
-                      <span className="text-body text-foreground group-hover:text-muted transition-colors">
-                        {prevProject.title}
-                      </span>
-                    </Link>
-                  ) : (
-                    <div />
-                  )}
-                  {nextProject ? (
-                    <Link
-                      href={`/work/${nextProject.slug}`}
-                      className="group flex flex-col text-right"
-                    >
-                      <span className="text-small text-muted mb-1">
-                        Next
-                      </span>
-                      <span className="text-body text-foreground group-hover:text-muted transition-colors">
-                        {nextProject.title}
-                      </span>
-                    </Link>
-                  ) : (
-                    <div />
-                  )}
-                </>
-              );
-            })()}
+            {project.prevProject ? (
+              <Link
+                href={`/work/${project.prevProject.slug}`}
+                className="group flex flex-col"
+              >
+                <span className="text-small text-muted mb-1">
+                  Previous Project
+                </span>
+                <span className="text-body text-foreground group-hover:text-muted transition-colors">
+                  ← {project.prevProject.title}
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
+            {project.nextProject ? (
+              <Link
+                href={`/work/${project.nextProject.slug}`}
+                className="group flex flex-col text-right"
+              >
+                <span className="text-small text-muted mb-1">
+                  Next Project
+                </span>
+                <span className="text-body text-foreground group-hover:text-muted transition-colors">
+                  {project.nextProject.title} →
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
           </div>
         </nav>
       </div>
