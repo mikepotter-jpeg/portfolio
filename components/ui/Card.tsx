@@ -42,6 +42,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
 
         <div className="p-6">
+          {project.subtitle && (
+            <p className="text-sm text-foreground/50 mb-1">{project.subtitle}</p>
+          )}
           <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
             {project.title}
           </h3>

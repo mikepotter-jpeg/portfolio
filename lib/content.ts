@@ -19,6 +19,7 @@ export const navigation = [
 export interface Project {
   slug: string;
   title: string;
+  subtitle?: string;
   tagline: string;
   description: string;
   role: string;
@@ -34,7 +35,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "export-service-account",
+    slug: "export-service",
     title: "Export Service",
     tagline: "Account and access platform for Australia's export industry",
     description:
@@ -59,7 +60,8 @@ export const projects: Project[] = [
   },
   {
     slug: "dan-picked",
-    title: "Dan Picked",
+    subtitle: "managing subscriptions",
+    title: "Dan Picked wine subscriptions",
     tagline: "Wine subscription service for Dan Murphy's",
     description:
       "Wine subscription service launched to 500,000+ My Dan's members. I designed the end-to-end customer experience and an internal portal for staff to curate monthly selections.",
@@ -84,22 +86,18 @@ export const projects: Project[] = [
 ];
 
 export const about = {
-  headline: "I'm a product designer based in Australia.",
-  intro:
-    "I specialize in creating digital experiences that are both beautiful and functional. With a focus on user-centered design, I help businesses solve complex problems through thoughtful design solutions.",
+  title: "About me",
+  badges: [
+    { emoji: "📍", text: "Sydney-based" },
+    { emoji: "👨🏻‍💻", text: "Product designer" },
+    { emoji: "📈", text: "5+ years experience" },
+  ],
   bio: [
-    "I've spent the past several years working on products across government, retail, and technology sectors. My approach combines strategic thinking with hands-on design execution.",
-    "I believe great design comes from understanding people—their needs, frustrations, and goals. I work closely with stakeholders and users to ensure every design decision is grounded in real insights.",
-    "When I'm not designing, you'll find me exploring new places, reading about design and technology, or enjoying a good cup of coffee.",
+    "I'm a product designer with 5+ years' experience building digital products across government, energy, and retail.",
+    "I started in industrial design, which grounded me in designing for people. Today, I focus on turning complex business challenges into intuitive, user-centred solutions that deliver real outcomes.",
+    "I work best in close partnership with developers and stakeholders, shaping ideas into scalable, elegant products that simplify complexity.",
   ],
-  skills: [
-    "Product Design",
-    "UX Research",
-    "Design Systems",
-    "Prototyping",
-    "User Testing",
-    "Figma",
-  ],
+  cta: "If I sound like a fit for your team, let's chat.",
 };
 
 export const contact = {
