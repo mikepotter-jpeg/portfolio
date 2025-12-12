@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/content";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="antialiased font-sans">
+      <body className="font-sans">
         <Header />
         <main className="pt-16">{children}</main>
         <Footer />
@@ -49,4 +50,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -43,11 +43,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
   }
 
   return (
-    <article className="py-24">
-      <div className="container mx-auto px-6">
+    <article className="py-20 md:py-28">
+      <div className="max-w-container mx-auto px-6">
         {/* Breadcrumb */}
-        <nav className="max-w-3xl mx-auto mb-8" aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm text-foreground/60">
+        <nav className="max-w-content mb-8" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 text-small text-muted">
             <li>
               <Link
                 href="/"
@@ -57,7 +57,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </Link>
             </li>
             <li>
-              <span className="mx-2">/</span>
+              <span className="mx-1">/</span>
             </li>
             <li>
               <Link
@@ -68,7 +68,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </Link>
             </li>
             <li>
-              <span className="mx-2">/</span>
+              <span className="mx-1">/</span>
             </li>
             <li className="text-foreground" aria-current="page">
               {project.title}
@@ -77,35 +77,34 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </nav>
 
         {/* Header */}
-        <header className="max-w-3xl mx-auto mb-16">
-
+        <header className="max-w-content mb-12">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-sm font-medium text-foreground/50 uppercase tracking-wider">
+            <span className="text-small text-muted uppercase tracking-wide">
               {project.role}
             </span>
             {project.duration && (
               <>
-                <span className="text-foreground/30">•</span>
-                <span className="text-sm text-foreground/50">
+                <span className="text-muted">•</span>
+                <span className="text-small text-muted">
                   {project.duration}
                 </span>
               </>
             )}
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-hero-md md:text-hero text-foreground mb-4">
             {project.title}
           </h1>
 
-          <p className="text-xl text-foreground/70 leading-relaxed">
+          <p className="text-body-lg text-muted">
             {project.tagline}
           </p>
         </header>
 
         {/* Hero Image */}
         {project.heroImage && (
-          <div className="max-w-5xl mx-auto mb-16">
-            <div className="aspect-[16/9] relative rounded-2xl overflow-hidden bg-foreground/5">
+          <div className="mb-16">
+            <div className="aspect-[16/9] relative rounded-card overflow-hidden bg-[#f5f5f5]">
               <Image
                 src={project.heroImage}
                 alt={project.title}
@@ -118,13 +117,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
         )}
 
         {/* Content */}
-        <div className="max-w-3xl mx-auto prose prose-lg prose-neutral dark:prose-invert">
+        <div className="max-w-content">
           {project.challenge && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
+              <h2 className="text-h2 text-foreground mb-4">
                 The Challenge
               </h2>
-              <p className="text-foreground/70 leading-relaxed">
+              <p className="text-body-lg text-muted">
                 {project.challenge}
               </p>
             </section>
@@ -132,10 +131,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
           {project.solution && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
+              <h2 className="text-h2 text-foreground mb-4">
                 The Solution
               </h2>
-              <p className="text-foreground/70 leading-relaxed">
+              <p className="text-body-lg text-muted">
                 {project.solution}
               </p>
             </section>
@@ -143,10 +142,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
           {project.outcome && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
+              <h2 className="text-h2 text-foreground mb-4">
                 The Outcome
               </h2>
-              <p className="text-foreground/70 leading-relaxed">
+              <p className="text-body-lg text-muted">
                 {project.outcome}
               </p>
             </section>
@@ -154,16 +153,16 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
           {project.highlights && project.highlights.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
+              <h2 className="text-h2 text-foreground mb-4">
                 Key Highlights
               </h2>
               <ul className="space-y-2">
                 {project.highlights.map((highlight, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-foreground/70"
+                    className="flex items-start gap-3 text-body-lg text-muted"
                   >
-                    <span className="text-foreground/30 mt-1">•</span>
+                    <span className="text-border mt-1">•</span>
                     {highlight}
                   </li>
                 ))}
@@ -173,7 +172,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="max-w-3xl mx-auto mt-16 pt-8 border-t border-foreground/10">
+        <nav className="max-w-content mt-16 pt-8 border-t border-border">
           <div className="flex justify-between">
             {(() => {
               const currentIndex = projects.findIndex(
@@ -193,10 +192,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
                       href={`/work/${prevProject.slug}`}
                       className="group flex flex-col"
                     >
-                      <span className="text-sm text-foreground/50 mb-1">
+                      <span className="text-small text-muted mb-1">
                         Previous
                       </span>
-                      <span className="text-foreground group-hover:text-foreground/70 transition-colors">
+                      <span className="text-body text-foreground group-hover:text-muted transition-colors">
                         {prevProject.title}
                       </span>
                     </Link>
@@ -208,10 +207,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
                       href={`/work/${nextProject.slug}`}
                       className="group flex flex-col text-right"
                     >
-                      <span className="text-sm text-foreground/50 mb-1">
+                      <span className="text-small text-muted mb-1">
                         Next
                       </span>
-                      <span className="text-foreground group-hover:text-foreground/70 transition-colors">
+                      <span className="text-body text-foreground group-hover:text-muted transition-colors">
                         {nextProject.title}
                       </span>
                     </Link>

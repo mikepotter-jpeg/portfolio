@@ -5,32 +5,33 @@ import { about } from "@/lib/content";
 
 export default function AboutPage() {
   return (
-    <article className="py-24">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl">
+    <article className="py-20 md:py-28">
+      <div className="max-w-container mx-auto px-6">
+        <div className="max-w-content">
           {/* Title */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-hero-md md:text-hero text-foreground mb-8"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             {about.title}
           </motion.h1>
 
           {/* Badges */}
           <motion.div
-            className="flex flex-wrap gap-4 mb-10"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex flex-col gap-2 mb-10"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
             {about.badges.map((badge, index) => (
               <span
                 key={index}
-                className="text-base md:text-lg font-medium text-foreground"
+                className="text-body-lg font-medium text-foreground"
               >
-                {badge.emoji} {badge.text}
+                <span className="mr-2">{badge.emoji}</span>
+                {badge.text}
               </span>
             ))}
           </motion.div>
@@ -38,14 +39,14 @@ export default function AboutPage() {
           {/* Bio */}
           <motion.div
             className="space-y-6 mb-10"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           >
             {about.bio.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-lg md:text-xl text-foreground/80 leading-relaxed"
+                className="text-body-lg text-muted"
               >
                 {paragraph}
               </p>
@@ -54,10 +55,10 @@ export default function AboutPage() {
 
           {/* CTA */}
           <motion.p
-            className="text-lg md:text-xl text-foreground/80"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-body-lg text-muted"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           >
             {about.cta}
           </motion.p>

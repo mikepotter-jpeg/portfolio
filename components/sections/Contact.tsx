@@ -5,25 +5,25 @@ import { contact, siteConfig } from "@/lib/content";
 
 export function Contact() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-6">
+    <section className="py-20">
+      <div className="max-w-container mx-auto px-6">
         <motion.div
-          className="max-w-2xl"
-          initial={{ opacity: 0, y: 20 }}
+          className="max-w-content"
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-h2 text-foreground mb-3">
             {contact.headline}
           </h2>
-          <p className="text-lg md:text-xl text-foreground/80 mb-4">
+          <p className="text-body-lg text-muted mb-2">
             {contact.subheadline}
           </p>
-          <p className="text-lg md:text-xl text-foreground/80">
+          <p className="text-body-lg text-muted">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="text-foreground font-medium underline underline-offset-4 hover:text-foreground/70 transition-colors"
+              className="text-foreground underline hover:text-muted transition-colors"
             >
               Email me
             </a>{" "}
@@ -32,7 +32,7 @@ export function Contact() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground font-medium underline underline-offset-4 hover:text-foreground/70 transition-colors"
+              className="text-foreground underline hover:text-muted transition-colors"
             >
               LinkedIn
             </a>

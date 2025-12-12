@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="min-h-[80vh] flex items-center relative overflow-hidden py-24">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl">
+    <section className="py-20 md:py-28">
+      <div className="max-w-container mx-auto px-6">
+        <div className="max-w-content">
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-hero-md md:text-hero text-foreground mb-6"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             I&apos;m Michael, a product designer in Sydney.
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-foreground/80 mb-4 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-body-lg text-muted mb-4"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           >
             I specialise in enterprise product design, with experience in account
             systems, permissions, and identity workflows where clarity matters.
@@ -30,24 +30,24 @@ export function Hero() {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl text-foreground/80 mb-6 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-body-lg text-muted mb-6"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           >
             I use research to inform decisions and partner with engineering to
             deliver.
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl text-foreground/80"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-body-lg text-muted"
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           >
             <Link
               href="/about"
-              className="text-foreground font-medium underline underline-offset-4 hover:text-foreground/70 transition-colors"
+              className="text-foreground underline hover:text-muted transition-colors"
             >
               Learn a little more about me
             </Link>
